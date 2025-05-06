@@ -1,0 +1,21 @@
+== Java - PyTorch Demo (Deep Java Learning)
+
+The Deep Java Library (DJL) is a high-level, engine-agnostic framework for deep learning in Java. It provides APIs to train and deploy models without requiring deep knowledge of specific deep learning engines. PyTorch is a popular open-source machine learning framework, known for its flexibility and ease of use, particularly in research and prototyping. DJL supports PyTorch as one of its backend engines, allowing Java developers to leverage PyTorch models within their applications.
+
+DJL's PyTorch engine enables the execution of PyTorch models in a Java environment. This integration simplifies the deployment of PyTorch models in production systems, especially those built on Java. It handles the complexities of native library management and provides a consistent API for inference, regardless of the underlying framework. To use PyTorch with DJL, one must include the appropriate PyTorch engine dependency in their project. DJL can load PyTorch models, including those from the PyTorch model zoo, and run inference using them. It's important to manage dependencies correctly, as DJL supports multiple engines, and including unnecessary ones can increase memory consumption.
+
+In this demo we show an introductory example of using a pre-trained model (minilm-uncased-squad2) to inference (predict) based upon a given question and supplied paragraph.
+
+== Build
+
+[,text,linenum]
+----
+mvn clean install
+----
+
+== Run
+
+[,text,linenum]
+----
+mvn exec:java -Dexec.mainClass="com.savoir.java.pytorch.demo.PyTorchDemo"
+----
