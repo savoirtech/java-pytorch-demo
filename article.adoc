@@ -1,15 +1,20 @@
 == Java - PyTorch Demo (Deep Java Learning)
 
-The Deep Java Library (DJL) is a high-level, engine-agnostic framework for deep learning in Java. It provides APIs to train and deploy models without requiring deep knowledge of specific deep learning engines. PyTorch is a popular open-source machine learning framework, known for its flexibility and ease of use, particularly in research and prototyping. DJL supports PyTorch as one of its backend engines, allowing Java developers to leverage PyTorch models within their applications.
-
-DJL's PyTorch engine enables the execution of PyTorch models in a Java environment. This integration simplifies the deployment of PyTorch models in production systems, especially those built on Java. It handles the complexities of native library management and provides a consistent API for inference, regardless of the underlying framework. To use PyTorch with DJL, one must include the appropriate PyTorch engine dependency in their project. DJL can load PyTorch models, including those from the PyTorch model zoo, and run inference using them. It's important to manage dependencies correctly, as DJL supports multiple engines, and including unnecessary ones can increase memory consumption.
+The Deep Java Library (DJL) is a high-level, engine-agnostic framework for deep learning in Java. It provides APIs to train and deploy models without requiring deep knowledge of specific deep learning engines.
 
 In this demo we show an introductory example of using a custom model (cruise-drink-package) to inference (predict) based upon a given input.
 
-== Custom Model
+== Training a Custom Model
 
-Our custom was trained upon a dataset representing cruise passenger drink package purchase data.
+To build our own model we use Jupyter notebook.
 
+In the jupyter folder you will find 2 ipynb files.
+
+CruiseNotebook.ipynb: Trains a drink package purchase prediction model using an input csv file.
+
+ConvertToOnnx.ipynb: Converts a joblib file into onnx model format.
+
+=== Data Format
 [,text,linenum]
 ----
 Age: Number > 0
@@ -28,8 +33,13 @@ The model seeks to aid marketers in targeting sales to a specific passenger base
 ex:
  What drink package would a 21-year-old Male with Silver loyalty on Itinerary 0 or 2 likely purchase?
 
+=== joblib, Onnx and dot files
 
-== Build
+We have provided model files, and a dot file for the training set.
+
+The dot file will requite a graphviz package for viewing in your IDE.
+
+== DLJ Project Build
 
 [,text,linenum]
 ----
