@@ -33,5 +33,5 @@ mvn clean install
 # Run
 
 ``` text
-mvn exec:java -Dexec.mainClass="com.savoir.java.pytorch.demo.PyTorchDemo"
+mvn exec:java -Dexec.mainClass="com.savoir.java.pytorch.demo.OnnxDemo"
 ```

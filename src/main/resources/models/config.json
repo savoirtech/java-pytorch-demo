@@ -1,0 +1,10 @@
+{
+  "input": {
+    "name": "float_input",
+    "shape": [null],
+    "dtype": "float32"
+  },
+  "output": {
+    "name": "output_label"
+  }
+}
