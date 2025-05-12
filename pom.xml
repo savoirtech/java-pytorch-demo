@@ -44,24 +44,13 @@
             <version>${deep.java.learning.version}</version>
         </dependency>
 
-        <!-- DJL PyTorch Engine -->
+        <!-- ONNX Runtime Engine -->
         <dependency>
-            <groupId>ai.djl.pytorch</groupId>
-            <artifactId>pytorch-engine</artifactId>
+            <groupId>ai.djl.onnxruntime</groupId>
+            <artifactId>onnxruntime-engine</artifactId>
             <version>${deep.java.learning.version}</version>
         </dependency>
 
-        <!-- Optional: Model Zoo for pre-trained models -->
-        <dependency>
-            <groupId>ai.djl.pytorch</groupId>
-            <artifactId>pytorch-model-zoo</artifactId>
-            <version>${deep.java.learning.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ai.djl</groupId>
-            <artifactId>model-zoo</artifactId>
-            <version>${deep.java.learning.version}</version>
-        </dependency>
         <dependency>
             <groupId>ai.djl.huggingface</groupId>
             <artifactId>tokenizers</artifactId>

@@ -1,0 +1,50 @@
+age,gender,itinerary,loyalty,package
+1,0,0,0,No Package
+2,1,0,0,No Package
+29,0,0,1,Coffee/Tea/Hot Chocolate
+30,1,0,1,Coffee/Tea/Hot Chocolate
+4,0,1,0,No Package
+7,1,1,0,Soda & Juices
+33,0,1,1,Alcohol
+37,1,1,1,Alcohol
+7,0,2,0,Soda & Juices
+9,1,2,0,Soda & Juices
+36,0,2,1,Premium
+40,1,2,1,Premium
+25,0,1,3,No Package
+28,1,1,2,Soda & Juices
+35,0,1,0,Coffee/Tea/Hot Chocolate
+38,1,1,0,No Package
+45,0,1,1,Coffee/Tea/Hot Chocolate
+48,1,1,1,No Package
+24,0,2,3,Premium
+29,1,2,2,Premium
+34,0,2,0,Coffee/Tea/Hot Chocolate
+39,1,2,0,Soda & Juices
+44,0,2,1,No Package
+49,1,2,1,No Package
+23,0,0,3,Coffee/Tea/Hot Chocolate
+30,1,0,2,Coffee/Tea/Hot Chocolate
+33,0,0,0,Coffee/Tea/Hot Chocolate
+40,1,0,0,Premium
+43,0,0,1,Premium
+50,1,0,1,Coffee/Tea/Hot Chocolate
+4,1,2,0,No Package
+52,0,1,3,No Package
+82,1,1,2,Soda & Juices
+53,0,1,0,Coffee/Tea/Hot Chocolate
+83,1,1,0,No Package
+54,0,1,1,Coffee/Tea/Hot Chocolate
+84,1,1,1,No Package
+42,0,2,3,Premium
+92,1,2,2,Premium
+43,0,2,0,Coffee/Tea/Hot Chocolate
+93,1,2,0,Soda & Juices
+44,0,2,1,No Package
+94,1,2,1,No Package
+32,0,0,3,Coffee/Tea/Hot Chocolate
+3,1,0,2,No Package
+33,0,0,0,Coffee/Tea/Hot Chocolate
+4,1,0,0,No Package
+43,0,0,1,Premium
+5,1,0,1,Soda & Juices

@@ -15,47 +15,52 @@
  */
 package com.savoir.java.pytorch.demo;
 
+import ai.djl.Application;
 import ai.djl.ModelException;
-import ai.djl.huggingface.translator.QuestionAnsweringTranslatorFactory;
+import ai.djl.modality.nlp.qa.QuestionAnsweringTranslator;
 import ai.djl.inference.Predictor;
+import ai.djl.modality.nlp.*;
+import ai.djl.modality.nlp.bert.*;
 import ai.djl.modality.nlp.qa.QAInput;
 import ai.djl.repository.zoo.Criteria;
 import ai.djl.repository.zoo.ZooModel;
 import ai.djl.training.util.ProgressBar;
 import ai.djl.translate.TranslateException;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 public class PyTorchDemo {
 
     public static void main(String[] args) throws IOException, ModelException, TranslateException {
-        String question = "Does DJL integrate Java with PyTorch?";
-        String paragraph =
-                "The Deep Java Library (DJL) is a high-level, " +
-                "engine-agnostic framework for deep learning in Java. " +
-                "It provides APIs to train and deploy models without " +
-                "requiring deep knowledge of specific deep learning engines. " +
-                "PyTorch is a popular open-source machine learning framework, " +
-                "known for its flexibility and ease of use, particularly in " +
-                "research and prototyping. DJL supports PyTorch as one of its backend " +
-                "engines, allowing Java developers to leverage PyTorch models " +
-                "within their applications.";
+        String question = "What drink package would a 21 year old Make, with bronze loyalty, on a northern itinary purchase?";
+        String context = """
+                Our model provides a prediction for Drink Package purchase given a passenger's data.
+                A passenger's data is represented as a four tuple of Age, Gender, Itinary, and Loyalty.
+                Age is a positive integer greater than 0.
+                Gender is 0 for female, 1 for male.
+                Itinary is represented as an enumeration of 0 (northern), 1 (transatlantic), 2 (tropical).
+                Loyalty represents customer level, from No Level (0), Bronze (1), Silver (2), to Gold (3).
+                """;
 
         Criteria<QAInput, String> criteria =
                 Criteria.builder()
                         .setTypes(QAInput.class, String.class)
-                        .optModelUrls("djl://ai.djl.huggingface.pytorch/deepset/minilm-uncased-squad2")
-                        .optEngine("PyTorch")
-                        .optTranslatorFactory(new QuestionAnsweringTranslatorFactory())
+                        .optApplication(Application.NLP.QUESTION_ANSWER)
+                        .optModelPath(Paths.get("src/main/resources/models"))
+                        .optEngine("OnnxRuntime")
+                        .optTranslator(new QuestionAnsweringTranslator.Builder()
+                                .setTokenizer(new BertTokenizer("src/main/resources/models/vocab.txt"))
+                                .build())
                         .optProgress(new ProgressBar())
                         .build();
 
         try (ZooModel<QAInput, String> model = criteria.loadModel();
              Predictor<QAInput, String> predictor = model.newPredictor()) {
-            QAInput input = new QAInput(question, paragraph);
+            QAInput input = new QAInput(question, context);
             String res = predictor.predict(input);
             System.out.println("Answer: " + res);
         } catch (Exception ex) {
-            System.err.println(ex.getMessage());
+            System.out.println("ERROR: " + ex.getMessage());
         }
     }
 }
