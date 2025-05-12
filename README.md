@@ -20,9 +20,35 @@ those from the PyTorch model zoo, and run inference using them. It’s
 important to manage dependencies correctly, as DJL supports multiple
 engines, and including unnecessary ones can increase memory consumption.
 
-In this demo we show an introductory example of using a pre-trained
-model (minilm-uncased-squad2) to inference (predict) based upon a given
-question and supplied paragraph.
+In this demo we show an introductory example of using a custom model
+(cruise-drink-package) to inference (predict) based upon a given input.
+
+# Custom Model
+
+Our custom was trained upon a dataset representing cruise passenger
+drink package purchase data.
+
+``` text
+Age: Number > 0
+Gender: 0 (female), 1 (male)
+Itinerary: SKU code for ship route. 0 -> 2 (three different routes).
+Loyalty Level: No Level (0), Bronze (1), Silver(2), Gold(3).
+Drink Package: No Package, Soda & Juices, Coffee/Tea/Hot Chocolate, Alcohol, Premium
+```
+
+To help illustrate trends we’re going to assume route 0 is a northern
+itinerary (preference for hot drinks), and route 2 is tropical
+(refreshment).
+
+## Prediction Purpose
+
+The model seeks to aid marketers in targeting sales to a specific
+passenger based upon cruiser trends. Given known passenger information
+(Age, Gender, Itinerary, Loyalty Level) which Drink Package upsell is
+most likely to be sold if offered.
+
+ex: What drink package would a 21-year-old Male with Silver loyalty on
+Itinerary 0 or 2 likely purchase?
 
 # Build
 

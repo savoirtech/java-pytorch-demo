@@ -46,7 +46,7 @@ public class OnnxDemo {
         // Step 3: Prepare input data as NDList (e.g., a single input tensor)
         NDManager manager = NDManager.newBaseManager();
         //Age 21, Male, Northern, Bronze Loyalty
-        NDArray inputTensor = manager.create(new float[]{21, 1, 0, 1}, new Shape(1, 4));
+        NDArray inputTensor = manager.create(new float[]{21, 1, 2, 1}, new Shape(1, 4));
         NDList input = new NDList(inputTensor);
 
         // Step 4: Use the predictor to perform inference

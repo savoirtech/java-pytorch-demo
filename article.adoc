@@ -26,7 +26,7 @@ To help illustrate trends we're going to assume route 0 is a northern itinerary 
 The model seeks to aid marketers in targeting sales to a specific passenger based upon cruiser trends. Given known passenger information (Age, Gender, Itinerary, Loyalty Level) which Drink Package upsell is most likely to be sold if offered.
 
 ex:
- What drink package would a 35-year-old Male with Silver loyalty on Itinerary 1 likely purchase?
+ What drink package would a 21-year-old Male with Silver loyalty on Itinerary 0 or 2 likely purchase?
 
 
 == Build
@@ -40,5 +40,5 @@ mvn clean install
 
 [,text,linenum]
 ----
-mvn exec:java -Dexec.mainClass="com.savoir.java.pytorch.demo.PyTorchDemo"
+mvn exec:java -Dexec.mainClass="com.savoir.java.pytorch.demo.OnnxDemo"
 ----
